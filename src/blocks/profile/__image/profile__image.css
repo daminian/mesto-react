@@ -1,0 +1,8 @@
+.profile__image {
+    min-width: 120px;
+    min-height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
