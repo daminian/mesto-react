@@ -44,12 +44,12 @@ function App() {
             <>
             <label className="popup__label">
             <input type="text" name="name" className="popup__input popup__name" required minLength="2"
-                maxLength="40" />
+                maxLength="40" placeholder="Имя"/>
             <span id="name-error" className="popup__error"></span>
             </label>
             <label className="popup__label">
             <input type="text" name="job" className="popup__input popup__job" required minLength="2"
-                maxLength="200" />
+                maxLength="200" placeholder="Занятие"/>
             <span id="job-error" className="popup__error"></span>
             </label>
             </>
@@ -72,7 +72,7 @@ function App() {
         <PopupWithForm name="avatar" title="Обновить аватар" cildren={
             <>
             <label className="popup__label">
-                <input type="url" name="url" className="popup__input popup__avatar-links" required />
+                <input type="url" name="url" className="popup__input popup__avatar-links" placeholder="Ссылка на аватарку" required />
                 <span id="url-error" className="popup__error"></span>
             </label>
             </>
