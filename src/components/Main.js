@@ -4,29 +4,25 @@ import Card from './Card.js'
 
 const Main = (props) => {
 
-    const [user, setUserInfo] = React.useState([])
+    const [user, setUserInfo] = React.useState({})
     const [cards, setCards] = React.useState([])
 
     React.useEffect(() => {
-        api.getUserInfo().then((data) => {
-            const item =({ 
-                userName: data.name,
-                userDescription: data.about,
-                userAvatar: data.avatar
-            })
-            setUserInfo(item)
-        })
-    },[])
-
-    React.useEffect(() => {
-        api.getInitialCards().then((data) => {
-            const items = data.map((item) => ({
+        api.getAppInfo().then((data) => {
+            data = {cards: data[0],user: data[1]}
+            const cardsList = data.cards.map((item) => ({
                 id: item._id,
                 name: item.name,
                 likes: item.likes.length,
                 src: item.link
             }))
-            setCards(items)
+            const userInfo = ({
+                userName: data.user.name,
+                userDescription: data.user.about,
+                userAvatar: data.user.avatar
+            })
+            setUserInfo(userInfo)
+            setCards(cardsList)
         })
     },[])
 
