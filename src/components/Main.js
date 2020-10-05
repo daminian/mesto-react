@@ -8,7 +8,8 @@ const Main = (props) => {
     const [cards, setCards] = React.useState([])
 
     React.useEffect(() => {
-        api.getAppInfo().then((data) => {
+        api.getAppInfo()
+        .then((data) => {
             data = {cards: data[0],user: data[1]}
             const cardsList = data.cards.map((item) => ({
                 id: item._id,
@@ -23,6 +24,9 @@ const Main = (props) => {
             })
             setUserInfo(userInfo)
             setCards(cardsList)
+        })
+        .catch((err) => {
+            console.log(err)
         })
     },[])
 
