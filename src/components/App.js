@@ -45,22 +45,22 @@ function App() {
     api.updateProfileInfo({name, about})
     .then((user) => {
       setCurrentUser(user)
+      closeAllPopups()
     })
     .catch((err) => {
       console.log(err)
-    })
-    .then(() => closeAllPopups())    
+    })   
   }
 
   function handleUpdateAvatar(avatar) {
     api.updateAvatar(avatar)
     .then((avatar) => {
      setCurrentUser(avatar)
+     closeAllPopups()
     })
     .catch((err) => {
      console.log(err)
     })
-    .then(() => closeAllPopups())
   }
 
   function handleCardLike(card) {
@@ -93,11 +93,11 @@ function App() {
     api.postNewCard(card)
     .then((newCard) => {
       setCards([newCard, ...cards])
+      closeAllPopups()
     })
     .catch((err) => {
       console.log(err)
     })
-    .then(() => closeAllPopups())
   }
 
   React.useEffect(() => {
