@@ -4,9 +4,9 @@ import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
 
+    const currentUser = React.useContext(CurrentUserContext);
     const [name, setName] = React.useState('');
     const [description, setDescription] = React.useState('');
-    const currentUser = React.useContext(CurrentUserContext);
 
     function handleNameChange(e) {
         setName(e.target.value)
@@ -34,12 +34,12 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
             <>
             <label className="popup__label">
             <input type="text" name="name" className="popup__input popup__name" required minLength="2"
-                maxLength="40" placeholder="Имя" onChange={handleNameChange} defaultValue={currentUser.name}/>
+                maxLength="40" placeholder="Имя" onChange={handleNameChange} value={name}/>
             <span id="name-error" className="popup__error"></span>
             </label>
             <label className="popup__label">
             <input type="text" name="job" className="popup__input popup__job" required minLength="2"
-                maxLength="200" placeholder="Занятие" onChange={handleDescriptionChange} defaultValue={currentUser.about}/>
+                maxLength="200" placeholder="Занятие" onChange={handleDescriptionChange} value={description}/>
             <span id="job-error" className="popup__error"></span>
             </label>
             </>

@@ -27,12 +27,12 @@ function AddPlacePopup({isOpen, onClose, onAddPlaseSubmit}) {
             <>
             <label className="popup__label">
                 <input type="text" name="mesto" className="popup__input popup__mesto" placeholder="Название"
-                    required minLength="1" maxLength="30" onChange={handleNameChange}/>
+                    required minLength="1" maxLength="30" onChange={handleNameChange} value={name}/>
                 <span id="mesto-error" className="popup__error"></span>
             </label>
             <label className="popup__label">
                 <input type="url" name="url" className="popup__input popup__links"
-                    placeholder="Ссылка на картинку" required onChange={handleLinkChange}/>
+                    placeholder="Ссылка на картинку" required onChange={handleLinkChange} value={link}/>
                 <span id="url-error" className="popup__error"></span>
             </label>
             </>

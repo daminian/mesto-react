@@ -49,7 +49,7 @@ function App() {
     .catch((err) => {
       console.log(err)
     })
-    closeAllPopups()    
+    .then(() => closeAllPopups())    
   }
 
   function handleUpdateAvatar(avatar) {
@@ -60,7 +60,7 @@ function App() {
     .catch((err) => {
      console.log(err)
     })
-    closeAllPopups()
+    .then(() => closeAllPopups())
   }
 
   function handleCardLike(card) {
@@ -92,12 +92,12 @@ function App() {
   function handleAddPlaceSubmit(card) {
     api.postNewCard(card)
     .then((newCard) => {
-      setCards([...cards, newCard])
+      setCards([newCard, ...cards])
     })
     .catch((err) => {
       console.log(err)
     })
-    closeAllPopups()
+    .then(() => closeAllPopups())
   }
 
   React.useEffect(() => {
@@ -123,7 +123,7 @@ function App() {
         .catch((err) => {
             console.log(err)
         })
-  },[cards])
+  },[])
 
   return (
   <CurrentUserContext.Provider value={currentUser}>

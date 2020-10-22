@@ -2,7 +2,7 @@
     width: 100%;
     grid-area: photo;
     height: 282px;
-    
+    object-fit: cover;
 }
 
 .cards__photo:hover {
