@@ -113,7 +113,15 @@ class Api {
             })
     }
 
-    addLike(id) {
+    changeLikeCardStatus(id, isLiked) {
+        if (isLiked === true) {
+            return this._addLike(id);
+        } else {
+            return this._deliteLike(id);
+        }
+    }
+
+    _addLike(id) {
         return fetch(`${this._url}/cards/likes/${id}`, {
                 method: "PUT",
                 headers: {
@@ -128,7 +136,7 @@ class Api {
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
     }
-    deliteLike(id) {
+    _deliteLike(id) {
         return fetch(`${this._url}/cards/likes/${id}`, {
                 method: "DELETE",
                 headers: {
